@@ -1,18 +1,15 @@
 package it.unibs.fp.planetarium;
 
-import java.util.LinkedList;
-
-public class Pianeta {
+public class Luna {
 	
 	private String codice;
 	private double posizione;
 	private double massa;
-	private LinkedList Luna[];
 	
-	public Pianeta(String _codice, double _posizione, double _massa) {
-		this.codice=_codice;
-		this.posizione=_posizione;
-		this.massa=_massa;
+	public Luna(String _codice, double _posizione, double _massa) {
+		this.codice = _codice;
+		this.posizione = _posizione;
+		this.massa = _massa;
 	}
 	
 	public String getCodice() {
@@ -27,8 +24,5 @@ public class Pianeta {
 		return massa;
 	}
 	
-	public LinkedList[] getLune(){
-		return Luna;
-	}
 
 }
