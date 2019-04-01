@@ -2,18 +2,18 @@ package it.unibs.fp.planetarium;
 
 public class Vettore {
 	
-	private int asseX;
-	private int asseY;
+	private double asseX;
+	private double asseY;
 	
-	public Vettore (int asseX, int asseY) {
+	public Vettore (double asseX, double asseY) {
 		this.asseX = asseX;
 		this.asseY = asseY;
 	}
 	
-	public int getAsseX() {
+	public double getAsseX() {
 		return asseX;
 	}
-	public int getAsseY() {
+	public double getAsseY() {
 		return asseY;
 	}
 	
@@ -43,6 +43,27 @@ public class Vettore {
 		}else{
 			return false;
 		}
+		
+	}
+	
+	/**
+	 * 
+	 * @param v1 posizione del primo corpo celeste o del centro di massa calcolato precedentemente
+	 * @param v2 posizione secondo corpo celeste
+	 * @param massa1 
+	 * @param massa2
+	 * @return ritorna la posizione del centro di massa
+	 */
+	public Vettore centroMassa (Vettore v1, Vettore v2, int massa1, int massa2) {
+		double asseX;
+		double asseY;
+		
+		asseX = (massa1 * v1.getAsseX() + massa2 * v2.getAsseX())/(massa1+massa2);
+		asseY = (massa1 * v1.getAsseY() + massa2 * v2.getAsseY())/(massa1+massa2);
+		
+		Vettore posCentroMassa = new Vettore (asseX, asseY);
+		
+		return posCentroMassa;
 		
 	}
 
