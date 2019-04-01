@@ -1,6 +1,5 @@
 package it.unibs.fp.planetarium;
 
-<<<<<<< HEAD
 import java.util.LinkedList;
 
 public class Pianeta {
@@ -31,8 +30,5 @@ public class Pianeta {
 	public LinkedList[] getLune(){
 		return Luna;
 	}
-=======
-public class Pianeta {
->>>>>>> 8cfa080102db0924ddcec8694457585ec00c64b3
 
 }
