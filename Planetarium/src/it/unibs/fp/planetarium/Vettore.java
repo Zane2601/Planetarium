@@ -31,13 +31,18 @@ public class Vettore {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Vettore [asseX=" + asseX + ", asseY=" + asseY + "]";
+	}
+
 	/**
 	 * 
 	 * @param v1 primo punto
 	 * @param v2 secondo punto
 	 * @return ritorna Vero se i punti sono sovrapposti. Ritorna Falso se i punti non sono sovrapposti
 	 */
-	public boolean isSovrapposto (Vettore v1, Vettore v2) {
+	public static boolean isSovrapposto (Vettore v1, Vettore v2) {
 		if (v1.getAsseX()==v2.getAsseX() && v1.getAsseY()==v2.getAsseY()) {
 			return true;
 		}else{
@@ -54,7 +59,7 @@ public class Vettore {
 	 * @param massa2
 	 * @return ritorna la posizione del centro di massa
 	 */
-	public Vettore centroMassa (Vettore v1, Vettore v2, int massa1, int massa2) {
+	public static Vettore centroMassa (Vettore v1, Vettore v2, double massa1, double massa2) {
 		double asseX;
 		double asseY;
 		

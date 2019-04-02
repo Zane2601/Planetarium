@@ -15,12 +15,14 @@ public class Stella {
 	private String codice;
 	private Vettore posizione = new Vettore(0,0);
 	private double massa;
-	private LinkedList pianeta[];
+	private LinkedList <Pianeta> listaPianeti = new LinkedList<Pianeta>();
 	
-	public Stella(String _codice, double _massa, Vettore _posizione) {
+	
+	public Stella(String _codice, double _massa, Vettore _posizione, LinkedList _listaPianeti) {
 		this.codice = _codice;
 		this.massa = _massa;
 		this.posizione = _posizione;
+		this.listaPianeti = _listaPianeti;
 	}
 	
 	public String getCodice(){
@@ -31,12 +33,18 @@ public class Stella {
 		return massa;
 	}
 	
-	public LinkedList[] getPianeti() {
-		return pianeta;
+	public Vettore getPosizione() {
+		return posizione;
 	}
+	
+	public LinkedList getPianeti() {
+		return listaPianeti;
+	}
+	
 	
 	public void addpianeta() {
 		
+
 	}
 	
 	public static Stella creaSole() {
@@ -44,7 +52,8 @@ public class Stella {
 		String nomeSole = InputDati.leggiStringa(RICHIESTA_NOME_SOLE);
 		Double massaSole = InputDati.leggiDouble(RICHIESTA_MASSA_SOLE);
 		Vettore posizione = new Vettore(0,0);
-		return new Stella(nomeSole, massaSole, posizione);
+		LinkedList listaPianeti = null;
+		return new Stella(nomeSole, massaSole, posizione, listaPianeti);
 	}
 
 }

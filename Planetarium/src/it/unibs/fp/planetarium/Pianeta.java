@@ -5,13 +5,13 @@ import java.util.LinkedList;
 public class Pianeta {
 	
 	private String codice;
-	private double posizione;
-	private double massa;
+	private Vettore posizione;
+	private Double massa;
 	private LinkedList Luna[];
 	
-	public Pianeta(String _codice, double _posizione, double _massa) {
-		this.codice=_codice;
-		this.posizione=_posizione;
+	public Pianeta(String _codice, Vettore _posizione, double _massa) {
+		this.codice= _codice;
+		this.posizione = _posizione;
 		this.massa=_massa;
 	}
 	
@@ -19,7 +19,7 @@ public class Pianeta {
 		return codice;
 	}
 	
-	public double getPosizione() {
+	public Vettore getPosizione() {
 		return posizione;
 	}
 	
