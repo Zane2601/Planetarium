@@ -2,18 +2,25 @@ package it.unibs.fp.planetarium;
 
 import java.util.LinkedList;
 
+import it.unibs.fp.mylib.InputDati;
+
 public class Stella {
+	
+	private static final String RICHIESTA_MASSA_SOLE = "Inserisci la massa del sole: ";
+	private static final String RICHIESTA_NOME_SOLE = "\nInserisci il nome del sole: ";
+	private static final String BENVENUTO_CREA_SOLE = "Per iniziare, crea il sole del tuo sistema.\n\tNe potrai creare solo uno!";
 	
 	
 	
 	private String codice;
-	private static Vettore posizione = new Vettore(0,0);
+	private Vettore posizione = new Vettore(0,0);
 	private double massa;
 	private LinkedList Pianeta[];
 	
-	public Stella(String _codice, double _massa) {
+	public Stella(String _codice, double _massa, Vettore _posizione) {
 		this.codice = _codice;
 		this.massa = _massa;
+		this.posizione = _posizione;
 	}
 	
 	public String getCodice(){
@@ -26,6 +33,14 @@ public class Stella {
 	
 	public LinkedList[] getPianeti() {
 		return Pianeta;
+	}
+	
+	public static Stella creaSole() {
+		System.out.println(BENVENUTO_CREA_SOLE);
+		String nomeSole = InputDati.leggiStringa(RICHIESTA_NOME_SOLE);
+		Double massaSole = InputDati.leggiDouble(RICHIESTA_MASSA_SOLE);
+		Vettore posizione = new Vettore(0,0);
+		return new Stella(nomeSole, massaSole, posizione);
 	}
 
 }
