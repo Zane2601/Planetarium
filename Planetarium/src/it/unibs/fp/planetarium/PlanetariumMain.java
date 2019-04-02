@@ -5,9 +5,12 @@ import it.unibs.fp.mylib.MyMenu;
 
 public class PlanetariumMain {
 
-	private static final String RICHIESTA_MASSA_SOLE = "Inserisci la massa del sole: ";
-	private static final String RICHIESTA_NOME_SOLE = "Inserisci il nome del sole: ";
-	private static final String BENVENUTO_CREA_SOLE = "Per iniziare, crea il sole del tuo sistema.\n Ne potrai creare solo uno!";
+	private static final String RICHIESTA_POSIZIONE_CORPO_CELESTE = "Inserisci la poszione del corpo celeste rispetto alla stella (0, 0): ";
+	private static final String RICHIESTA_MASSA_CORPO_CELESTE = "Inserisci la massa del corpo celeste: ";
+	private static final String RICHIESTA_NOME_CORPO_CELESTE = "Inserisci il nome del corpo celeste: ";
+	private static final String BENVENUTO_CREA_LUNA = "Stai per creare una nuova luna";
+	private static final String BENVENUTO_CREA_PIANETA = "Stai per creare un nuovo pianeta";
+	
 	private static final String TITOLO_MENU = "Scegli un'azione";
 	private static final String [] VOCI_MENU = {
 			"Crea un pianeta",
@@ -17,18 +20,35 @@ public class PlanetariumMain {
 	};
 	private static final String SALUTO_INIZIALE = "Benvenuto in Planetarium!";
 
+	
+	//*************************************************************************************
 	public static void main(String[] args) {
 		int scelta = 0;
 		int i = 0;
 		int j = 0;
+<<<<<<< HEAD
 		Stella sole = creaSole();
 	
 		System.out.println(SALUTO_INIZIALE);
 		
+=======
+>>>>>>> 0f2148eeda93bd0fd8359678610e1485b0ea7cee
 		
 		
+		System.out.println(SALUTO_INIZIALE);
 		
+		Stella sole = Stella.creaSole();
 		
+		mostraMenu();
+	
+	
+	}
+	//**************************************************************************************
+
+
+
+	private static void mostraMenu() {
+		int scelta;
 		MyMenu menu = new MyMenu(TITOLO_MENU, VOCI_MENU);
 		
 		do {
@@ -36,32 +56,57 @@ public class PlanetariumMain {
 			scelta = menu.scegli();
 			switch (scelta) {
 			case 1:
+<<<<<<< HEAD
 				//Pianeta p=creaPianeta();
 				//sole.addpianeta(p);
 				break;
 			case 2:
 				//Luna l=creaLuna();
 				//pianeta.addluna(l);
+=======
+				System.out.println(BENVENUTO_CREA_PIANETA);
+				creaCorpoCeleste();
+				
+				break;
+			case 2:
+				System.out.println(BENVENUTO_CREA_LUNA);
+				Stella p = creaCorpoCeleste();
+>>>>>>> 0f2148eeda93bd0fd8359678610e1485b0ea7cee
 				break;
 			case 3:
-				eliminaPianeta();
+		//		eliminaPianeta();
 				break;
 			case 4:
-				eliminaLuna();
+			//	eliminaLuna();
 				break;
 			default:
 				break;
 			}
 			
 		} while (scelta != 0);
-		
 	}
 	
 	
-	public static CorpoCeleste creaSole() {
-		System.out.println(BENVENUTO_CREA_SOLE);
-		String nomeSole = InputDati.leggiStringa(RICHIESTA_NOME_SOLE);
-		Double massaSole = InputDati.leggiDouble(RICHIESTA_MASSA_SOLE);		
+	
+	
+	
+	
+	public static Pianeta creaCorpoCeleste() {
+		Vettore posizione = null;
+		String nomeCorpoCeleste = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
+		Double massaCorpoCeleste = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
+		
+		posizione = leggiPosizione();
+		
+		return new Pianeta(nomeCorpoCeleste, massaCorpoCeleste, posizione);
+	}
+	
+
+	public static Vettore leggiPosizione() {
+		System.out.println(RICHIESTA_POSIZIONE_CORPO_CELESTE);
+		Double x = InputDati.leggiDouble("x = ");
+		Double y = InputDati.leggiDouble("y = ");
+		return new Vettore(x, y);
 	}
 
 }
