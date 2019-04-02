@@ -9,7 +9,7 @@ public class Stella {
 	private String codice;
 	private static Vettore posizione = new Vettore(0,0);
 	private double massa;
-	private LinkedList Pianeta[];
+	private LinkedList pianeta[];
 	
 	public Stella(String _codice, double _massa) {
 		this.codice = _codice;
@@ -25,7 +25,11 @@ public class Stella {
 	}
 	
 	public LinkedList[] getPianeti() {
-		return Pianeta;
+		return pianeta;
+	}
+	
+	public void addpianeta() {
+		
 	}
 
 }

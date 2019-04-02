@@ -22,7 +22,7 @@ public class PlanetariumMain {
 		int i = 0;
 		int j = 0;
 		Stella sole = creaSole();
-		
+	
 		System.out.println(SALUTO_INIZIALE);
 		
 		
@@ -36,10 +36,12 @@ public class PlanetariumMain {
 			scelta = menu.scegli();
 			switch (scelta) {
 			case 1:
-				creaPianeta();
+				//Pianeta p=creaPianeta();
+				//sole.addpianeta(p);
 				break;
 			case 2:
-				creaLuna();
+				//Luna l=creaLuna();
+				//pianeta.addluna(l);
 				break;
 			case 3:
 				eliminaPianeta();
