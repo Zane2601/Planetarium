@@ -2,7 +2,11 @@ package it.unibs.fp.planetarium;
 
 import java.util.LinkedList;
 
+import it.unibs.fp.mylib.InputDati;
+
 public class Vettore {
+	
+	private static final String RICHIESTA_POSIZIONE_CORPO_CELESTE = "Inserisci la posizione del corpo celeste rispetto alla stella (0, 0): ";
 	
 	private double asseX;
 	private double asseY;
@@ -77,6 +81,13 @@ public class Vettore {
 		return posCentroMassa;
 		
 	}
+	
+	public static Vettore leggiPosizione() {
+        System.out.println(RICHIESTA_POSIZIONE_CORPO_CELESTE);
+        Double x = InputDati.leggiDouble("x = ");
+        Double y = InputDati.leggiDouble("y = ");
+        return new Vettore(x, y);
+    }
 	
 	
 	/*

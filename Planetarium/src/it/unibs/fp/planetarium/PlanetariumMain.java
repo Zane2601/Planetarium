@@ -53,7 +53,7 @@ public class PlanetariumMain {
             switch (scelta) {
             case 1:
                 System.out.println(BENVENUTO_CREA_PIANETA);
-                Pianeta p = creaPianeta(sole);
+                Pianeta p = Pianeta.creaPianeta(sole);
                
                
                 //stampa del centro di massa ogni volta, tra pianeta p e sole
@@ -64,7 +64,7 @@ public class PlanetariumMain {
                 
                 boolean sceltaCreaLuna = InputDati.yesOrNo(RICHIESTA_CREAZIONE_LUNA);
                 if (sceltaCreaLuna) {
-                	creaLuna(sole);
+                	Luna.creaLuna(sole);
                 	// Vettore cdmGen = Vettore.centroMassa(cdm.get, sole.getPosizione(), p.getMassa(), sole.getMassa());
                 }
                 
@@ -93,7 +93,7 @@ public class PlanetariumMain {
                 //    eliminaLuna();
                     break;
             case 7:
-            	// System.out.println("Il centro di massa del sistema è: " + cdm);
+            	// System.out.println("Il centro di massa del sistema ï¿½: " + cdm);
             default:
                 break;
             }
@@ -101,42 +101,11 @@ public class PlanetariumMain {
         } while (scelta != 0);
     }
     
-    public static Pianeta creaPianeta(Stella stella) {
-       
-        String codice = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
-        Vettore posizione = null;
-        do {
-            posizione = leggiPosizione();   
-        } while (Vettore.isSovrapposto(stella.getPosizione(), posizione));
-       
-       
-        Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
-        ArrayList listaLune = new ArrayList<Luna>();
-       
-        return new Pianeta(codice, posizione, massa, listaLune);
-    }
-   
-   
-    public static Luna creaLuna(Stella stella) {
-        
-        String codice = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
-        Vettore posizione = null;
-        do {
-            posizione = leggiPosizione();   
-        } while (Vettore.isSovrapposto(stella.getPosizione(), posizione));
-       
-       
-        Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
-        
-       
-        return new Luna(codice, posizione, massa);
-    }
     
-    public static Vettore leggiPosizione() {
-        System.out.println(RICHIESTA_POSIZIONE_CORPO_CELESTE);
-        Double x = InputDati.leggiDouble("x = ");
-        Double y = InputDati.leggiDouble("y = ");
-        return new Vettore(x, y);
-    }
+   
+   
+    
+    
+    
 
 }

@@ -1,6 +1,12 @@
 package it.unibs.fp.planetarium;
 
+import it.unibs.fp.mylib.InputDati;
+
 public class Luna {
+	
+	private static final String RICHIESTA_MASSA_CORPO_CELESTE = "Inserisci la massa del corpo celeste: ";
+    private static final String RICHIESTA_NOME_CORPO_CELESTE = "Inserisci il nome del corpo celeste: ";
+    
 	
 	private String codice;
 	private Vettore posizione;
@@ -24,5 +30,21 @@ public class Luna {
 		return massa;
 	}
 	
+public static Luna creaLuna(Stella stella) {
+        
+        String codice = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
+        Vettore posizione = null;
+        do {
+            posizione = Vettore.leggiPosizione();   
+        } while (Vettore.isSovrapposto(stella.getPosizione(), posizione));
+       
+       
+        Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
+        
+       
+        return new Luna(codice, posizione, massa);
+    }
+	
 
+	
 }

@@ -3,7 +3,13 @@ package it.unibs.fp.planetarium;
 
 import java.util.ArrayList;
 
+import it.unibs.fp.mylib.InputDati;
+
 public class Pianeta {
+	
+	private static final String RICHIESTA_MASSA_CORPO_CELESTE = "Inserisci la massa del corpo celeste: ";
+    private static final String RICHIESTA_NOME_CORPO_CELESTE = "Inserisci il nome del corpo celeste: ";
+    
 	
 	private String codice;
 	private Vettore posizione;
@@ -43,7 +49,20 @@ public class Pianeta {
 		return "\n[codice = " + codice + "]";
 	}
 
-	
+	public static Pianeta creaPianeta(Stella stella) {
+	       
+        String codice = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
+        Vettore posizione = null;
+        do {
+            posizione = Vettore.leggiPosizione();   
+        } while (Vettore.isSovrapposto(stella.getPosizione(), posizione));
+       
+       
+        Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
+        ArrayList listaLune = new ArrayList<Luna>();
+       
+        return new Pianeta(codice, posizione, massa, listaLune);
+    }
 
 	
 }
