@@ -55,7 +55,7 @@ public class Stella {
 		return new Stella(nomeSole, massaSole, posizione, listaPianeti);
 	}
 	
-	public static void mostraPianeti(LinkedList list) {	
+	public static void mostraPianeti(ArrayList list) {	
 		System.out.println("I pianeti contenuti in questo sistema sono:\n");
 		System.out.println(list);
 	}
