@@ -5,6 +5,7 @@ import it.unibs.fp.mylib.MyMenu;
 import java.util.LinkedList;
 
 public class PlanetariumMain {
+	//ccommento prova
 
     private static final String RICHIESTA_PIANETA_PER_LUNA = "A quale pianeta vuoi assegnare la luna che stai per creare?";
 	private static final String RICHIESTA_POSIZIONE_CORPO_CELESTE = "Inserisci la posizione del corpo celeste rispetto alla stella (0, 0): ";
