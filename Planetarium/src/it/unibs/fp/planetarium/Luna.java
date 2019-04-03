@@ -31,7 +31,7 @@ public class Luna {
 		return massa;
 	}
 	
-public static Luna creaLuna(Stella stella) {
+/*public static Luna creaLuna(Stella stella) {
         
         String codice = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
         Vettore posizione = null;
@@ -39,14 +39,14 @@ public static Luna creaLuna(Stella stella) {
         
         
         
-        /*
+        
         for (int i = 0; i < Stella.listaPianeti.size(); i++) {
 			if (Vettore.isSovrapposto(stella.listaPianeti.get(i).getPosizione(), posizione)) {
 				System.out.println(LUNA_SOVRAPPOSTA);
 				posizione = Vettore.leggiPosizione();
 			}
 		}
-		*/
+		
         
         
         
@@ -59,7 +59,7 @@ public static Luna creaLuna(Stella stella) {
         
        
         return new Luna(codice, posizione, massa);
-    }
+    }*/
 
 @Override
 public String toString() {

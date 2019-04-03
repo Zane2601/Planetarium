@@ -58,7 +58,7 @@ public class PlanetariumMain {
             switch (scelta) {
             case 1:
                 System.out.println(BENVENUTO_CREA_PIANETA);
-                Pianeta p = Pianeta.creaPianeta(sole);
+                Pianeta p = Stella.creaPianeta(sole);
                
                
                 //stampa del centro di massa ogni volta, tra pianeta p e sole
@@ -69,7 +69,7 @@ public class PlanetariumMain {
                 
                 boolean sceltaCreaLuna = InputDati.yesOrNo(RICHIESTA_CREAZIONE_LUNA);
                 if (sceltaCreaLuna) {
-                	Luna l1 = Luna.creaLuna(sole);
+                	Luna l1 = Pianeta.creaLuna(sole);
                 	Pianeta.addLuna(l1, p);
                 	p = null;
                 	// Vettore cdmGen = Vettore.centroMassa(cdm.get, sole.getPosizione(), p.getMassa(), sole.getMassa());
@@ -89,7 +89,7 @@ public class PlanetariumMain {
                 
                 if (pianetaDaAssociare != null) {
                 	System.out.println("Puoi creare la luna");
-        			Luna l = Luna.creaLuna(sole);
+        			Luna l = Pianeta.creaLuna(sole);
         			Pianeta.addLuna(l, pianetaDaAssociare);
                 	
                 		}else {

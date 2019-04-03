@@ -9,6 +9,9 @@ public class Stella {
 	private static final String RICHIESTA_MASSA_SOLE = "Inserisci la massa della stella: ";
 	private static final String RICHIESTA_NOME_SOLE = "\nInserisci il nome della stella: ";
 	private static final String BENVENUTO_CREA_SOLE = "Per iniziare, crea la stella del tuo sistema.\n\tNe potrai creare solo una!";
+	private static final String RICHIESTA_MASSA_CORPO_CELESTE = "Inserisci la massa del corpo celeste: ";
+    private static final String RICHIESTA_NOME_CORPO_CELESTE = "Inserisci il nome del corpo celeste: ";
+    
 	
 	
 	
@@ -59,6 +62,21 @@ public class Stella {
 		System.out.println("I pianeti contenuti in questo sistema sono:\n");
 		System.out.println(list);
 	}
+	
+	public static Pianeta creaPianeta(Stella stella) {
+	       
+        String codice = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
+        Vettore posizione = null;
+        do {
+            posizione = Vettore.leggiPosizione();   
+        } while (Vettore.isSovrapposto(stella.getPosizione(), posizione));
+       
+       
+        Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
+        ArrayList<Luna> listaLune = new ArrayList<Luna>();
+       
+        return new Pianeta(codice, posizione, massa, listaLune);
+    }
 
 	
 	
