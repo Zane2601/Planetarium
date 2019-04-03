@@ -60,7 +60,34 @@ public static Luna creaLuna(Stella stella) {
        
         return new Luna(codice, posizione, massa);
     }
+
+@Override
+public String toString() {
+	return "Luna [codice=" + codice + "]";
+}
 	
 
+
+public static Luna cercaLuna(String lunaCercata) {
+	Luna luna = null;
+	int i = 0;
 	
+	do {
+		if (Pianeta.listaLune.get(i).getCodice().equals(lunaCercata))
+			return Pianeta.listaLune.get(i);
+		i++;
+	} while (i < Stella.listaPianeti.size());
+
+	if (i>Stella.listaPianeti.size())
+		System.out.println("Il pianeta cercato non esiste"); 
+	
+	
+			
+	return luna;
+}
+	
+
+public static void eliminaLuna(Luna lunaDaRimuovere) {
+	Pianeta.listaLune.remove(lunaDaRimuovere);
+}
 }

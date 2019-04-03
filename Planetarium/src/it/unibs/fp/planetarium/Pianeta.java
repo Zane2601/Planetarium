@@ -66,22 +66,32 @@ public class Pianeta {
 	
 	public static Pianeta cercaPianeta(String pianetaCercato) {
 		Pianeta pianeta = null;
-		//if Stella.listaPianeti.contains(pianetaCercato) pianeta = Stella.listaPianeti.get(index)
+		int i = 0;
 		
-		for (int i = 0; i < Stella.listaPianeti.size(); i++) {
-			if (Stella.listaPianeti.get(i).getCodice() == pianetaCercato) {
-				pianeta = Stella.listaPianeti.get(i);	
-				break;
-			}
-		}
+		do {
+			if (Stella.listaPianeti.get(i).getCodice().equals(pianetaCercato))
+				return Stella.listaPianeti.get(i);
+			i++;
+		} while (i < Stella.listaPianeti.size());
+
+		if (i>Stella.listaPianeti.size())
+			System.out.println("Il pianeta cercato non esiste"); 
 		
+		
+				
 		return pianeta;
 	}
 	
 	public static void mostraLuna(ArrayList list) {	
 		System.out.println("Le lune contenute in questo pianeta sono:\n");
+		
+		
 		System.out.println(list);
 	}
 
 	
+	
+	public static void eliminaPianeta(Pianeta pianetaDaRimuovere) {
+		Stella.listaPianeti.remove(pianetaDaRimuovere);
+	}
 }
