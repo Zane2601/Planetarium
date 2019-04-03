@@ -1,5 +1,6 @@
 package it.unibs.fp.planetarium;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import it.unibs.fp.mylib.InputDati;
@@ -106,23 +107,46 @@ public class Vettore {
     }
 	
 	
-	/*
-	public static Vettore centroMassa (LinkedList pianetiList, LinkedList luneList) {
+	
+	public static Vettore centroMassa (Stella stella) {
 		double asseX;
 		double asseY;
-		double sommaX;
+		double massaTot = stella.getMassa();
+		double prodottoTotMassaAsseX = 0;
+		double prodottoTotMassaAsseY = 0;
+		ArrayList<Pianeta> pianetiList = stella.listaPianeti;
+		
+		//calcola la massa totale
+		for (int i = 0; i < pianetiList.size(); i++) {
+			ArrayList<Luna> luneList = stella.listaPianeti.get(i).listaLune;
+			for (int j = 0; j < luneList.size(); j++) {
+				massaTot = massaTot + luneList.get(j).getMassa();
+				}
+			massaTot = massaTot + pianetiList.get(i).getMassa();
+		}
 		
 		for (int i = 0; i < pianetiList.size(); i++) {
+			ArrayList<Luna> luneList = stella.listaPianeti.get(i).listaLune;
 			for (int j = 0; j < luneList.size(); j++) {
-				sommaX = ;
+				
+				prodottoTotMassaAsseX = prodottoTotMassaAsseX + luneList.get(j).getPosizione().getAsseX() * luneList.get(j).getMassa();
+				prodottoTotMassaAsseY = prodottoTotMassaAsseY + luneList.get(j).getPosizione().getAsseY() * luneList.get(j).getMassa();
+
 			}
+			
+			prodottoTotMassaAsseX = prodottoTotMassaAsseX + pianetiList.get(i).getPosizione().getAsseX() * pianetiList.get(i).getMassa();
+			prodottoTotMassaAsseY = prodottoTotMassaAsseY + pianetiList.get(i).getPosizione().getAsseY() * pianetiList.get(i).getMassa();
+
 		}
+		
+		asseX = prodottoTotMassaAsseX / massaTot;
+		asseY = prodottoTotMassaAsseY / massaTot;
 		
 		Vettore posCentroMassa = new Vettore (asseX, asseY);
 		
 		return posCentroMassa;
 		
 	}
-	*/
+	
 
 }

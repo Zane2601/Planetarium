@@ -154,7 +154,8 @@ public class PlanetariumMain {
                 
                     break;
             case 7:
-            	// System.out.println("Il centro di massa del sistema �: " + cdm);
+            	Vettore cdmassa = Vettore.centroMassa(sole);
+            	System.out.println("Il centro di massa del sistema �: " + cdmassa);
             	break;
             
             case 8:
