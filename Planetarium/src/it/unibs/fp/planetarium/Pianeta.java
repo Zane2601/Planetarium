@@ -69,7 +69,10 @@ public class Pianeta {
 		//if Stella.listaPianeti.contains(pianetaCercato) pianeta = Stella.listaPianeti.get(index)
 		
 		for (int i = 0; i < Stella.listaPianeti.size(); i++) {
-			if (Stella.listaPianeti.get(i).getCodice() == pianetaCercato) pianeta = Stella.listaPianeti.get(i);			
+			if (Stella.listaPianeti.get(i).getCodice() == pianetaCercato) {
+				pianeta = Stella.listaPianeti.get(i);	
+				break;
+			}
 		}
 		
 		return pianeta;

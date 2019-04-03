@@ -6,6 +6,7 @@ public class Luna {
 	
 	private static final String RICHIESTA_MASSA_CORPO_CELESTE = "Inserisci la massa del corpo celeste: ";
     private static final String RICHIESTA_NOME_CORPO_CELESTE = "Inserisci il nome del corpo celeste: ";
+    private static final String LUNA_SOVRAPPOSTA = "Posizione già occupata, inserire altra posizione";
     
 	
 	private String codice;
@@ -34,9 +35,24 @@ public static Luna creaLuna(Stella stella) {
         
         String codice = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
         Vettore posizione = null;
+        //posizione = Vettore.leggiPosizione();
+        
+        
+        
+        /*
+        for (int i = 0; i < Stella.listaPianeti.size(); i++) {
+			if (Vettore.isSovrapposto(stella.listaPianeti.get(i).getPosizione(), posizione)) {
+				System.out.println(LUNA_SOVRAPPOSTA);
+				posizione = Vettore.leggiPosizione();
+			}
+		}
+		*/
+        
+        
+        
         do {
             posizione = Vettore.leggiPosizione();   
-        } while (Vettore.isSovrapposto(stella.getPosizione(), posizione));
+        } while (Vettore.isSovrapposto(stella.getPosizione(), posizione) || Vettore.isStessoPunto(stella, posizione));
        
        
         Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);

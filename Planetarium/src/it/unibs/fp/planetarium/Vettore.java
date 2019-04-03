@@ -7,7 +7,8 @@ import it.unibs.fp.mylib.InputDati;
 public class Vettore {
 	
 	private static final String RICHIESTA_POSIZIONE_CORPO_CELESTE = "Inserisci la posizione del corpo celeste rispetto alla stella (0, 0): ";
-	
+    private static final String CORPO_CELESTE_SOVRAPPOSTO = "Posizione già occupata, inserire altra posizione";
+
 	private double asseX;
 	private double asseY;
 	
@@ -33,7 +34,7 @@ public class Vettore {
 	 * @return la distanza tra i due punti. Stabilire nel Main una distanza massima oltre la quale non si possono aggiungere lune
 	 * 
 	 */
-	public double controllaDistanza (Vettore v1, Vettore v2) {
+	public static double controllaDistanza (Vettore v1, Vettore v2) {
 		
 		return Math.hypot((v2.getAsseX()-v1.getAsseX()), (v2.getAsseY()-v1.getAsseY()));
 	}
@@ -57,6 +58,19 @@ public class Vettore {
 			return false;
 		}
 		
+	}
+	
+	public static boolean isStessoPunto (Stella stella, Vettore pos) {
+		for (int i = 0; i < Stella.listaPianeti.size(); i++) {
+			if (Vettore.isSovrapposto(stella.listaPianeti.get(i).getPosizione(), pos)) {
+				System.out.println(CORPO_CELESTE_SOVRAPPOSTO);
+				//pos = Vettore.leggiPosizione();
+				return true;
+			}else {
+				return false;
+			}
+		}
+		return false;
 	}
 	
 	/**
@@ -87,6 +101,8 @@ public class Vettore {
         Double x = InputDati.leggiDouble("x = ");
         Double y = InputDati.leggiDouble("y = ");
         return new Vettore(x, y);
+        
+        
     }
 	
 	
