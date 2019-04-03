@@ -71,14 +71,16 @@ public class PlanetariumMain {
                 break;
             
             case 2:
+            	Pianeta pianetaDaAssociare = null;
+            	
                 System.out.println(BENVENUTO_CREA_LUNA);
                 String pianetaPerLunaString = InputDati.leggiStringa(RICHIESTA_PIANETA_PER_LUNA);
+                pianetaDaAssociare = Pianeta.cercaPianeta(pianetaPerLunaString);
                 
                
-               // Luna l = creaLuna(sole);
-               // Pianeta.addLuna(l, p);
+               Luna l = Luna.creaLuna(sole);
+               Pianeta.addLuna(l, pianetaDaAssociare);
 
-                //Luna.addLuna(l, pianetaPerLuna);
                 break;
             case 3:
             //    eliminaPianeta();
@@ -90,7 +92,11 @@ public class PlanetariumMain {
             	Stella.mostraPianeti(sole.listaPianeti);
                     break;
             case 6:
-                //    eliminaLuna();
+            	Pianeta pianetaDaAssociareLuna = null;
+            	
+                String pianetaPerCercaLunaString = InputDati.leggiStringa(RICHIESTA_PIANETA_PER_LUNA);
+                pianetaDaAssociareLuna = Pianeta.cercaPianeta(pianetaPerCercaLunaString);
+                Pianeta.mostraLuna(pianetaDaAssociareLuna.listaLune);
                     break;
             case 7:
             	// System.out.println("Il centro di massa del sistema �: " + cdm);

@@ -63,6 +63,22 @@ public class Pianeta {
        
         return new Pianeta(codice, posizione, massa, listaLune);
     }
+	
+	public static Pianeta cercaPianeta(String pianetaCercato) {
+		Pianeta pianeta = null;
+		//if Stella.listaPianeti.contains(pianetaCercato) pianeta = Stella.listaPianeti.get(index)
+		
+		for (int i = 0; i < Stella.listaPianeti.size(); i++) {
+			if (Stella.listaPianeti.get(i).getCodice() == pianetaCercato) pianeta = Stella.listaPianeti.get(i);			
+		}
+		
+		return pianeta;
+	}
+	
+	public static void mostraLuna(ArrayList list) {	
+		System.out.println("Le lune contenute in questo pianeta sono:\n");
+		System.out.println(list);
+	}
 
 	
 }
