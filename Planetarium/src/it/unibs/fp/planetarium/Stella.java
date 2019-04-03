@@ -1,6 +1,6 @@
 package it.unibs.fp.planetarium;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import it.unibs.fp.mylib.InputDati;
 
@@ -15,10 +15,10 @@ public class Stella {
 	private String codice;
 	private Vettore posizione = new Vettore(0,0);
 	private double massa;
-	public static LinkedList<Pianeta> listaPianeti = new LinkedList<Pianeta>();
+	public static ArrayList<Pianeta> listaPianeti = new ArrayList<Pianeta>();
 	
 	
-	public Stella(String _codice, double _massa, Vettore _posizione, LinkedList _listaPianeti) {
+	public Stella(String _codice, double _massa, Vettore _posizione, ArrayList _listaPianeti) {
 		this.codice = _codice;
 		this.massa = _massa;
 		this.posizione = _posizione;
@@ -37,13 +37,13 @@ public class Stella {
 		return posizione;
 	}
 	
-	public LinkedList getPianeti() {
+	public ArrayList getPianeti() {
 		return listaPianeti;
 	}
 	
 	
 	public static void addPianeta(Pianeta pianeta, Stella stella) {
-		Stella.listaPianeti.addLast(pianeta);
+		Stella.listaPianeti.add(pianeta);
 	}
 	
 	public static Stella creaSole() {
@@ -51,7 +51,7 @@ public class Stella {
 		String nomeSole = InputDati.leggiStringa(RICHIESTA_NOME_SOLE);
 		Double massaSole = InputDati.leggiDouble(RICHIESTA_MASSA_SOLE);
 		Vettore posizione = new Vettore(0,0);
-		LinkedList listaPianeti = new LinkedList<>();
+		ArrayList listaPianeti = new ArrayList<>();
 		return new Stella(nomeSole, massaSole, posizione, listaPianeti);
 	}
 	

@@ -64,7 +64,7 @@ public class Vettore {
 	 * @return ritorna la posizione del centro di massa
 	 */
 	
-	/*
+	
 	public static Vettore centroMassa (Vettore v1, Vettore v2, double massa1, double massa2) {
 		double asseX;
 		double asseY;
@@ -77,9 +77,9 @@ public class Vettore {
 		return posCentroMassa;
 		
 	}
-	*/
 	
 	
+	/*
 	public static Vettore centroMassa (LinkedList pianetiList, LinkedList luneList) {
 		double asseX;
 		double asseY;
@@ -96,5 +96,6 @@ public class Vettore {
 		return posCentroMassa;
 		
 	}
+	*/
 
 }

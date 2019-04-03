@@ -2,7 +2,7 @@ package it.unibs.fp.planetarium;
 
 import it.unibs.fp.mylib.InputDati;
 import it.unibs.fp.mylib.MyMenu;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class PlanetariumMain {
 
@@ -29,9 +29,6 @@ public class PlanetariumMain {
    
     //*************************************************************************************
     public static void main(String[] args) {
-        int scelta = 0;
-        int i = 0;
-        int j = 0;
        
        
         System.out.println(SALUTO_INIZIALE);
@@ -68,7 +65,7 @@ public class PlanetariumMain {
                 boolean sceltaCreaLuna = InputDati.yesOrNo(RICHIESTA_CREAZIONE_LUNA);
                 if (sceltaCreaLuna) {
                 	creaLuna(sole);
-                	Vettore cdm = Vettore.centroMassa(cdm.get, sole.getPosizione(), p.getMassa(), sole.getMassa());
+                	// Vettore cdmGen = Vettore.centroMassa(cdm.get, sole.getPosizione(), p.getMassa(), sole.getMassa());
                 }
                 
                 break;
@@ -96,7 +93,7 @@ public class PlanetariumMain {
                 //    eliminaLuna();
                     break;
             case 7:
-            	 System.out.println("Il centro di massa del sistema è: " +cdm);
+            	// System.out.println("Il centro di massa del sistema è: " + cdm);
             default:
                 break;
             }
@@ -114,7 +111,7 @@ public class PlanetariumMain {
        
        
         Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
-        LinkedList listaLune = new LinkedList<>();
+        ArrayList listaLune = new ArrayList<Luna>();
        
         return new Pianeta(codice, posizione, massa, listaLune);
     }
