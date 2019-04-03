@@ -3,10 +3,10 @@ package it.unibs.fp.planetarium;
 public class Luna {
 	
 	private String codice;
-	private double posizione;
+	private Vettore posizione;
 	private double massa;
 	
-	public Luna(String _codice, double _posizione, double _massa) {
+	public Luna(String _codice, Vettore _posizione, double _massa) {
 		this.codice = _codice;
 		this.posizione = _posizione;
 		this.massa = _massa;
@@ -16,7 +16,7 @@ public class Luna {
 		return codice;
 	}
 	
-	public double getPosizione() {
+	public Vettore getPosizione() {
 		return posizione;
 	}
 	

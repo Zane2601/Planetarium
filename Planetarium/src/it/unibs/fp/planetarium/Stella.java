@@ -6,16 +6,16 @@ import it.unibs.fp.mylib.InputDati;
 
 public class Stella {
 	
-	private static final String RICHIESTA_MASSA_SOLE = "Inserisci la massa del sole: ";
-	private static final String RICHIESTA_NOME_SOLE = "\nInserisci il nome del sole: ";
-	private static final String BENVENUTO_CREA_SOLE = "Per iniziare, crea il sole del tuo sistema.\n\tNe potrai creare solo uno!";
+	private static final String RICHIESTA_MASSA_SOLE = "Inserisci la massa della stella: ";
+	private static final String RICHIESTA_NOME_SOLE = "\nInserisci il nome della stella: ";
+	private static final String BENVENUTO_CREA_SOLE = "Per iniziare, crea la stella del tuo sistema.\n\tNe potrai creare solo una!";
 	
 	
 	
 	private String codice;
 	private Vettore posizione = new Vettore(0,0);
 	private double massa;
-	private LinkedList <Pianeta> listaPianeti = new LinkedList<Pianeta>();
+	public static LinkedList<Pianeta> listaPianeti = new LinkedList<Pianeta>();
 	
 	
 	public Stella(String _codice, double _massa, Vettore _posizione, LinkedList _listaPianeti) {
@@ -42,9 +42,8 @@ public class Stella {
 	}
 	
 	
-	public void addpianeta() {
-		
-
+	public static void addPianeta(Pianeta pianeta, Stella stella) {
+		Stella.listaPianeti.addLast(pianeta);
 	}
 	
 	public static Stella creaSole() {
@@ -52,9 +51,17 @@ public class Stella {
 		String nomeSole = InputDati.leggiStringa(RICHIESTA_NOME_SOLE);
 		Double massaSole = InputDati.leggiDouble(RICHIESTA_MASSA_SOLE);
 		Vettore posizione = new Vettore(0,0);
-		LinkedList listaPianeti = null;
+		LinkedList listaPianeti = new LinkedList<>();
 		return new Stella(nomeSole, massaSole, posizione, listaPianeti);
 	}
+	
+	public static void mostraPianeti(LinkedList list) {	
+		System.out.println("I pianeti contenuti in questo sistema sono:\n");
+		System.out.println(list);
+	}
+
+	
+	
 
 }
 
