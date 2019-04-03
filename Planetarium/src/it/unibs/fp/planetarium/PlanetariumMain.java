@@ -5,10 +5,9 @@ import it.unibs.fp.mylib.MyMenu;
 import java.util.LinkedList;
 
 public class PlanetariumMain {
-	//ccommento prova
-	//porca troia
 
-    private static final String RICHIESTA_PIANETA_PER_LUNA = "A quale pianeta vuoi assegnare la luna che stai per creare?";
+    private static final String RICHIESTA_CREAZIONE_LUNA = "Questo pianeta ha delle lune?";
+	private static final String RICHIESTA_PIANETA_PER_LUNA = "A quale pianeta vuoi assegnare la luna che stai per creare?";
 	private static final String RICHIESTA_POSIZIONE_CORPO_CELESTE = "Inserisci la posizione del corpo celeste rispetto alla stella (0, 0): ";
     private static final String RICHIESTA_MASSA_CORPO_CELESTE = "Inserisci la massa del corpo celeste: ";
     private static final String RICHIESTA_NOME_CORPO_CELESTE = "Inserisci il nome del corpo celeste: ";
@@ -22,7 +21,8 @@ public class PlanetariumMain {
             "Elimina un pianeta",
             "Elimina una luna",
             "Mostra tutti i pianeti",
-            "Mostra tutte le lune (dovrai selezionare un pianeta)"
+            "Mostra tutte le lune (dovrai selezionare un pianeta)",
+            "Mostra il centro di massa del sistema"
     };
     private static final String SALUTO_INIZIALE = "Benvenuto in Planetarium!";
 
@@ -61,17 +61,26 @@ public class PlanetariumMain {
                
                 //stampa del centro di massa ogni volta, tra pianeta p e sole
                 Vettore cdm = Vettore.centroMassa(p.getPosizione(), sole.getPosizione(), p.getMassa(), sole.getMassa());
-                System.out.println("Il centro di massa del sistema ï¿½: " +cdm);
                
+                               
                 Stella.addPianeta(p, sole);
+                
+                boolean sceltaCreaLuna = InputDati.yesOrNo(RICHIESTA_CREAZIONE_LUNA);
+                if (sceltaCreaLuna) {
+                	creaLuna(sole);
+                	Vettore cdm = Vettore.centroMassa(cdm.get, sole.getPosizione(), p.getMassa(), sole.getMassa());
+                }
+                
                 break;
             
             case 2:
                 System.out.println(BENVENUTO_CREA_LUNA);
                 String pianetaPerLunaString = InputDati.leggiStringa(RICHIESTA_PIANETA_PER_LUNA);
-
+                
                
-                Luna l = creaLuna(sole);
+               // Luna l = creaLuna(sole);
+               // Pianeta.addLuna(l, p);
+
                 //Luna.addLuna(l, pianetaPerLuna);
                 break;
             case 3:
@@ -86,18 +95,15 @@ public class PlanetariumMain {
             case 6:
                 //    eliminaLuna();
                     break;
+            case 7:
+            	 System.out.println("Il centro di massa del sistema è: " +cdm);
             default:
                 break;
             }
            
         } while (scelta != 0);
     }
-   
-   
-   
-   
-   
-   
+    
     public static Pianeta creaPianeta(Stella stella) {
        
         String codice = InputDati.leggiStringa(RICHIESTA_NOME_CORPO_CELESTE);
@@ -124,15 +130,11 @@ public class PlanetariumMain {
        
        
         Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
-       
+        
        
         return new Luna(codice, posizione, massa);
     }
     
-    
-
-    
-
     public static Vettore leggiPosizione() {
         System.out.println(RICHIESTA_POSIZIONE_CORPO_CELESTE);
         Double x = InputDati.leggiDouble("x = ");
