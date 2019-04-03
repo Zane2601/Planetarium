@@ -110,7 +110,7 @@ public class PlanetariumMain {
                 
                 if (pianetaDaEliminare != null) {
                 	Pianeta.eliminaPianeta(pianetaDaEliminare);
-                	System.out.println("Il pianeta " + pianetaDaEliminareString + " è stato eliminato correttamente");
+                	System.out.println("Il pianeta " + pianetaDaEliminareString + " ï¿½ stato eliminato correttamente");
                 		}else {
                 			System.out.println("Il pianeta non esiste. Non puoi eliminare un pianeta inesistente");
                 		}
@@ -128,7 +128,7 @@ public class PlanetariumMain {
                 
                 if (lunaDaEliminare != null) {
                 	Luna.eliminaLuna(lunaDaEliminare);
-                	System.out.println("Il satellite " + lunaDaEliminareString + " è stato eliminato correttamente");
+                	System.out.println("Il satellite " + lunaDaEliminareString + " ï¿½ stato eliminato correttamente");
                 		}else {
                 			System.out.println("La luna non esiste. Non puoi eliminare una luna inesistente");
                 		}

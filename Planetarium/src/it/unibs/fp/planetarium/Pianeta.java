@@ -16,7 +16,7 @@ public class Pianeta {
 	private Double massa;
 	public static ArrayList<Luna> listaLune = new ArrayList<Luna>();
 	
-	public Pianeta(String _codice, Vettore _posizione, double _massa, ArrayList _listaLune) {
+	public Pianeta(String _codice, Vettore _posizione, double _massa, ArrayList<Luna> _listaLune) {
 		this.codice= _codice;
 		this.posizione = _posizione;
 		this.massa=_massa;
@@ -36,12 +36,12 @@ public class Pianeta {
 	}
 	
 	
-	public ArrayList getPianeti() {
+	public ArrayList<Luna> getListaLune() {
 		return listaLune;
 	}
 	
 	public static void addLuna(Luna luna, Pianeta pianeta) {
-		pianeta.listaLune.add(luna);
+		Pianeta.listaLune.add(luna);
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class Pianeta {
        
        
         Double massa = InputDati.leggiDouble(RICHIESTA_MASSA_CORPO_CELESTE);
-        ArrayList listaLune = new ArrayList<Luna>();
+        ArrayList<Luna> listaLune = new ArrayList<Luna>();
        
         return new Pianeta(codice, posizione, massa, listaLune);
     }
@@ -74,19 +74,15 @@ public class Pianeta {
 			i++;
 		} while (i < Stella.listaPianeti.size());
 
-		if (i>Stella.listaPianeti.size())
-			System.out.println("Il pianeta cercato non esiste"); 
-		
-		
-				
+		 
 		return pianeta;
 	}
 	
-	public static void mostraLuna(ArrayList list) {	
+	public static void mostraLuna(ArrayList<Luna> listaLune) {	
 		System.out.println("Le lune contenute in questo pianeta sono:\n");
 		
 		
-		System.out.println(list);
+		System.out.println(listaLune);
 	}
 
 	
