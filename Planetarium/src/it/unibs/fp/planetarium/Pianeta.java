@@ -41,7 +41,7 @@ public class Pianeta {
 	}
 	
 	public static void addLuna(Luna luna, Pianeta pianeta) {
-		Pianeta.listaLune.add(luna);
+		pianeta.listaLune.add(luna);
 	}
 
 	@Override

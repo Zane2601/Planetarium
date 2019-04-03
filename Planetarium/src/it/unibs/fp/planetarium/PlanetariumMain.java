@@ -26,7 +26,8 @@ public class PlanetariumMain {
             "Elimina una luna",
             "Mostra tutti i pianeti",
             "Mostra tutte le lune (dovrai selezionare un pianeta)",
-            "Mostra il centro di massa del sistema"
+            "Mostra il centro di massa del sistema",
+            "Cerca un pianeta"
     };
     private static final String SALUTO_INIZIALE = "Benvenuto in Planetarium!";
 
@@ -70,6 +71,7 @@ public class PlanetariumMain {
                 if (sceltaCreaLuna) {
                 	Luna l1 = Luna.creaLuna(sole);
                 	Pianeta.addLuna(l1, p);
+                	p = null;
                 	// Vettore cdmGen = Vettore.centroMassa(cdm.get, sole.getPosizione(), p.getMassa(), sole.getMassa());
                 }
                 
@@ -77,9 +79,10 @@ public class PlanetariumMain {
             
             case 2:
             	Pianeta pianetaDaAssociare = null;
+            	String pianetaPerLunaString = null;
             	
                 System.out.println(BENVENUTO_CREA_LUNA);
-                String pianetaPerLunaString = InputDati.leggiStringa(RICHIESTA_PIANETA_PER_LUNA);
+                pianetaPerLunaString = InputDati.leggiStringa(RICHIESTA_PIANETA_PER_LUNA);
                 pianetaDaAssociare = Pianeta.cercaPianeta(pianetaPerLunaString);
                 
                 
@@ -135,9 +138,10 @@ public class PlanetariumMain {
                     break;
             case 6:
             	Pianeta pianetaDaAssociareMostra = null;
+            	String pianetaPerLunaMostraString = null;
             	
                 System.out.println(RICHIESTA_MOSTRA_LUNE);
-                String pianetaPerLunaMostraString = InputDati.leggiStringa(RICHIESTA_PIANETA_MOSTRA_LUNE);
+                pianetaPerLunaMostraString = InputDati.leggiStringa(RICHIESTA_PIANETA_MOSTRA_LUNE);
                 pianetaDaAssociareMostra = Pianeta.cercaPianeta(pianetaPerLunaMostraString);
             	
                 if (pianetaDaAssociareMostra != null) {
@@ -151,18 +155,30 @@ public class PlanetariumMain {
                     break;
             case 7:
             	// System.out.println("Il centro di massa del sistema �: " + cdm);
+            	break;
+            
+            case 8:
+            	Pianeta pianetaDaCercare = null;
+            	String pianetaDaCercareString = null;
+            	
+                
+                pianetaDaCercareString = InputDati.leggiStringa("Inserisci il pianeta da cercare: ");
+                pianetaDaCercare = Pianeta.cercaPianeta(pianetaDaCercareString);
+                
+                
+                
+                if (pianetaDaCercare != null) {
+                	System.out.println("Il pianeta esiste");
+        
+                		}else {
+                			System.out.println("Il pianeta non esiste");
+                		}
+                
+            	break;
             default:
                 break;
             }
            
         } while (scelta != 0);
     }
-    
-    
-   
-   
-    
-    
-    
-
 }
