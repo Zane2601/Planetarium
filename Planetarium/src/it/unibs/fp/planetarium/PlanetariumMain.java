@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 public class PlanetariumMain {
 	//ccommento prova
+	//porca troia
 
     private static final String RICHIESTA_PIANETA_PER_LUNA = "A quale pianeta vuoi assegnare la luna che stai per creare?";
 	private static final String RICHIESTA_POSIZIONE_CORPO_CELESTE = "Inserisci la posizione del corpo celeste rispetto alla stella (0, 0): ";
@@ -60,7 +61,7 @@ public class PlanetariumMain {
                
                 //stampa del centro di massa ogni volta, tra pianeta p e sole
                 Vettore cdm = Vettore.centroMassa(p.getPosizione(), sole.getPosizione(), p.getMassa(), sole.getMassa());
-                System.out.println("Il centro di massa del sistema è: " +cdm);
+                System.out.println("Il centro di massa del sistema ï¿½: " +cdm);
                
                 Stella.addPianeta(p, sole);
                 break;
