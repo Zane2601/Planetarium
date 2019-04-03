@@ -1,5 +1,7 @@
 package it.unibs.fp.planetarium;
 
+import java.util.LinkedList;
+
 public class Vettore {
 	
 	private double asseX;
@@ -16,6 +18,8 @@ public class Vettore {
 	public double getAsseY() {
 		return asseY;
 	}
+	
+	
 	
 	
 	/**
@@ -59,12 +63,33 @@ public class Vettore {
 	 * @param massa2
 	 * @return ritorna la posizione del centro di massa
 	 */
+	
+	/*
 	public static Vettore centroMassa (Vettore v1, Vettore v2, double massa1, double massa2) {
 		double asseX;
 		double asseY;
 		
 		asseX = (massa1 * v1.getAsseX() + massa2 * v2.getAsseX())/(massa1+massa2);
 		asseY = (massa1 * v1.getAsseY() + massa2 * v2.getAsseY())/(massa1+massa2);
+		
+		Vettore posCentroMassa = new Vettore (asseX, asseY);
+		
+		return posCentroMassa;
+		
+	}
+	*/
+	
+	
+	public static Vettore centroMassa (LinkedList pianetiList, LinkedList luneList) {
+		double asseX;
+		double asseY;
+		double sommaX;
+		
+		for (int i = 0; i < pianetiList.size(); i++) {
+			for (int j = 0; j < luneList.size(); j++) {
+				sommaX = ;
+			}
+		}
 		
 		Vettore posCentroMassa = new Vettore (asseX, asseY);
 		
